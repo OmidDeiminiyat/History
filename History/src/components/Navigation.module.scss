@@ -1,0 +1,31 @@
+@import './../helper/colors.scss';
+@import './../helper/fonts.scss';
+@import './../helper/mixin.scss';
+.mainNav {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color: $mainColor;
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: rgb(104, 225, 104);
+        li{
+            list-style: none;
+            margin: 0 90px 0 90px;
+            
+            a{
+                 color: $praph;
+                 text-decoration: none;
+                 font-size: 36px;
+                 @include LindenHill(normal);
+             }
+             .active{
+                font-weight: bold;
+                color: $lightGreen;
+             }
+        }
+    }
+   
+}

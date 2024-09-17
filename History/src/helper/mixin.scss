@@ -1,0 +1,10 @@
+@mixin Limelight{
+font-family: "Limelight", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin LindenHill($fontstyle) {
+    font-family: "Linden Hill", serif;
+  font-weight: 400;
+  font-style: $fontstyle;
+}
