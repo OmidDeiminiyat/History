@@ -15,6 +15,7 @@ export function Navbar(){
     setActivePath(location.pathname);
   }, [location]);
 
+
     return(
         <>
             <nav className={style.mainNav}>
@@ -23,7 +24,7 @@ export function Navbar(){
                         <NavLink to="/ByDate" className={({isActive}) => isActive ? style.active : '' }> By Date </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/" className={({isActive}) => isActive ? style.active : '' } > Today </NavLink>
+                        <NavLink to="/" className={({isActive}) => isActive ? style.active : '' }  > Today </NavLink>
                     </li>
                     <li>
                         <NavLink to="/Since" className={({isActive}) => isActive ? style.active : '' }  > Since </NavLink>

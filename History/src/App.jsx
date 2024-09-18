@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainLayout } from './layouts/MainLayout';
 import { Today } from './pages/Today';
-import { ByDate } from './pages/ByDate';
 import { Since } from './pages/Since';
 import { NotFound } from './pages/NoPage';
+import ByDate from './pages/ByDate';
+
+
 
 import './App.scss'
 
 function App() {
  
-
   return (
     <>
       <BrowserRouter>

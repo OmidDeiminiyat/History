@@ -18,13 +18,15 @@ export function Today(){
       const dateString = `${month}/${day}`;
   
       try {
-        const response = await fetch(`https://history.muffinlabs.com/date/${dateString}`);
+        const response = await fetch(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/events/${dateString}`);
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
         const result = await response.json();
+    
+        const eventsSlice = result.events.slice((pageNum - 1) * 10, pageNum * 10);
         
-        const eventsSlice = result.data.Events.slice((pageNum - 1) * 10, pageNum * 10);
+       
         
         setData((prevData) => [...prevData, ...eventsSlice]); 
         setIsLoading(false);
@@ -51,24 +53,27 @@ export function Today(){
   
       window.addEventListener('scroll', handleScroll);
       
-      return () => window.removeEventListener('scroll', handleScroll); // Clean up the listener
+      return () => window.removeEventListener('scroll', handleScroll); 
     }, []);
   
     if (error) {
       return <div>Error: {error}</div>;
     }
-
+    const truncateText = (text, maxLength) => {
+      if (text.length <= maxLength) return text;
+      return text.slice(0, maxLength) + "...";
+    };
     
     return(
         <div className="timeline">
             <div className="circled"></div>
-      {data.map((event, index) => ( 
-        <div className={`timelineEvent ${index % 2 === 0 ? 'right' : 'left'}`} key={index}>
+          {data.map((event, index) => ( 
+         <div className={`timelineEvent ${index % 2 === 0 ? 'right' : 'left'}`} key={index}>
           <div className="timeline-content">
             <h3>YEAR: {event.year}</h3>
             <div className="circle"><hr /> </div>
-            <p>{event.text}</p>
-            <a href={event.links[0].link}>Read more <span role="img" aria-label="book">📖</span></a>
+            <p> {truncateText(event.text, 100)}</p>
+            <a href={event.pages[0].content_urls.desktop.page}>Read more <span role="img" aria-label="book">📖</span></a>
             
           </div>
          
