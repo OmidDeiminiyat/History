@@ -1,8 +1,12 @@
 import React from "react";
 import './Timeline.scss';
 import { useState, useEffect } from 'react';
-  
-export function Today(){
+import { Navbar } from "../components/Navigation";
+import style from './box.module.scss';
+import { Lamp } from "../components/lamp/Lamp";
+import { BackToTop } from "../components/backTop/BackToTop";
+
+export function Today(props){
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -64,7 +68,26 @@ export function Today(){
       return text.slice(0, maxLength) + "...";
     };
     
+const value = 'dark';
+
+    
+    
     return(
+      <>
+      <Lamp />
+      <div className={style.box}>
+                    <hgroup>
+                        <span>
+                            <h1>On this day</h1>   
+                        </span>
+                    <p>What happened on this day - historical events, deaths and births thoughout time</p>
+                    </hgroup>
+                    <span className={`${style.circle}  ${style.topLeft}`} ></span>
+                    <span className={`${style.circle}  ${style.topRight}`}></span>
+                    <span className={`${style.circle}  ${style.bottomLeft}`}></span>
+                    <span className={`${style.circle}  ${style.bottomRight}`}></span> 
+                </div>
+                <Navbar />
         <div className="timeline">
             <div className="circled"></div>
           {data.map((event, index) => ( 
@@ -72,14 +95,19 @@ export function Today(){
           <div className="timeline-content">
             <h3>YEAR: {event.year}</h3>
             <div className="circle"><hr /> </div>
-            <p> {truncateText(event.text, 100)}</p>
+            <p className={value === 'light' ? 'LightMode' : 'DarkMode'}  > {truncateText(event.text, 100)} </p>
             <a href={event.pages[0].content_urls.desktop.page}>Read more <span role="img" aria-label="book">📖</span></a>
             
           </div>
          
         </div>
+        
       ))}
         {isLoading && <p>Loading more events...</p>}
     </div>
+    <BackToTop />
+    </>
     );
 }; 
+
+

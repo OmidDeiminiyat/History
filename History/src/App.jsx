@@ -3,7 +3,7 @@ import { MainLayout } from './layouts/MainLayout';
 import { Today } from './pages/Today';
 import { Since } from './pages/Since';
 import { NotFound } from './pages/NoPage';
-import ByDate from './pages/ByDate';
+import { ByDate } from './pages/ByDate';
 
 
 

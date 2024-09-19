@@ -157,6 +157,35 @@
       }
   }
   
+  .Lamp{
+    position: relative;
+    left: 93%;
+    top: 180px;
+    cursor: pointer;
+    
+  }
 
 
-  
+  /* Light mode styles */
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Common styles for both modes */
+.app-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.LightMode {
+    color: black;
+}
+.DarkMode {
+  color: white;
+}

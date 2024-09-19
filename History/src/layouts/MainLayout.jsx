@@ -3,6 +3,7 @@ import  {Navbar}  from '../components/Navigation';
 import { Header } from '../components/header/Header'; 
 import {Since} from '../pages/Since';
 import {useLocation} from 'react-router-dom';
+import { ByDate } from '../pages/ByDate';
 import SearchForm from '../components/search/SearchForm';
 
 export function MainLayout() {
@@ -22,7 +23,8 @@ export function MainLayout() {
     return(
         <>
         <Header title={title}  />
-        <Navbar />
+       
+
         <main>
          <Since />
          <Outlet />
