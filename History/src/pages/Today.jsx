@@ -74,24 +74,23 @@ export function Today(props){
   
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
-const syncThemeWithLocalStorage = () => {
-    const storedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(storedTheme);
-  };
+    const syncThemeWithLocalStorage = () => {
+        const storedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(storedTheme);
+      };
 
-  useEffect(() => {
-    syncThemeWithLocalStorage();
+    useEffect(() => {
+      syncThemeWithLocalStorage();
 
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'theme') {
-        setTheme(event.newValue);
-      }
-    });
-
-    return () => {
-      window.removeEventListener('storage', syncThemeWithLocalStorage);
-    };
-  }, [])
+      window.addEventListener('storage', (event) => {
+        if (event.key === 'theme') {
+          setTheme(event.newValue);
+        }
+      });
+        return () => {
+          window.removeEventListener('storage', syncThemeWithLocalStorage);
+        };
+      }, [])
 
     return(
       <>

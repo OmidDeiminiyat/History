@@ -18,7 +18,7 @@ export const Since = () => {
       <div className={style.box}>
                     <hgroup>
                         <span>
-                            <h1>On this day</h1>   
+                            <h1>About us</h1>   
                         </span>
                     <p>What happened on this day - historical events, deaths and births thoughout time</p>
                     </hgroup>
