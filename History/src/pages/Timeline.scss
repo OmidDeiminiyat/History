@@ -7,6 +7,9 @@
     background-color: $lightGreen;
     height:  100%;
     margin: 0 auto;
+    @media(max-width:600px){
+      margin-left: 360px;
+    }
     .circled {
         position: absolute;
         left: calc(50% - 12px);
@@ -38,9 +41,12 @@
         color: #d2c49d;
         text-decoration: none;
         font-weight: bold;
-        span {
-            margin-left: 5px;
+        span{
+          img{
+          
           }
+        }
+      
       }
       .circle {
         margin-top: 60px;
@@ -53,12 +59,18 @@
     text-align: right;
     padding-right: 20px;
     margin-top: 100px;
+    @media(max-width:600px){
+      margin-top: 160px;
+    }
     .timeline-content {
         padding: 15px;
         border-radius: 5px;
         width: 300px;
         color: white;
         margin-left: -360px;
+        @media(max-width:600px){
+    
+        }
        
         h3 {
             margin: 0px 0 10px;
@@ -66,6 +78,8 @@
             margin-left: 210px;
             top: 63px;
             @include LindenHill(italic);
+           font-size: 15px;
+            
           }
           p{
             position: absolute;
@@ -73,20 +87,20 @@
             right: 160px;
             width: 300px;
             @include LindenHill(normal);
-      
+            right: 100px;
           }
           a{
             position: absolute;
             top: 200px;
             right: 160px;
             width: 200px;
+            @include LindenHill(normal);
+            text-decoration: underline;
           }
       }
       .circle {
         position: absolute;
         top: 50%;
-        
-        
         transform: translateY(-50%);
         width: 24px;
         height: 24px;
@@ -109,12 +123,21 @@
     text-align: left;
     padding-left: 20px;
     margin-top: 100px;
+    @media(max-width:600px){
+      text-align: right;
+      margin-left: 0;
+      margin-top: 160px;
+    }
 
     .timeline-content {
         padding: 15px;
         border-radius: 5px;
         width: 300px;
         color: white;
+        @media(max-width:600px){
+         margin-left: -490px;
+         width: 100px;
+        }
      
         h3 {
             margin: 0 0 10px;
@@ -122,6 +145,10 @@
             width: 100px;
             top: 60px;
             @include LindenHill(italic);
+            @media(max-width:600px){
+              font-size: 15px;
+              left: -130px;
+            }
           }
           p{
             position: absolute;
@@ -129,12 +156,29 @@
             width: 300px;
             padding-left: 90px;
             @include LindenHill(normal);
+            @media(max-width:600px){
+            font-size: 14px;
+
+            }
           }
           a{
             position: absolute;
             width: 200px;
             padding-left: 90px;
             top: 210px;
+            @include LindenHill(normal);
+            text-decoration: underline;
+            span{
+            margin: 0;
+            padding: 0;
+              img{
+               margin: 0;
+               padding: 0;
+              }
+            }
+            @media(max-width:600px){
+             padding-left: 0;
+            }
           }
       }
       .circle {
@@ -153,6 +197,9 @@
             width: 100px;
             margin-left: 23px;
             background-color: $lightGreen;
+            @media(max-width:600px){
+      margin-left: -103px;
+            }
         }
       }
   }
@@ -188,4 +235,10 @@ body.dark {
 }
 .DarkMode {
   color: white;
+}
+
+.line {
+  width: 100%;
+  height: 21px;
+  background-color: $mainColor;
 }

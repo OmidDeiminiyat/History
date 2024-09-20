@@ -3,9 +3,12 @@
 .Lamp{
     position: relative;
     left: 93%;
-    top: 180px;
+    top: 210px;
     cursor: pointer;
-    
+    @media(max-width:600px){
+      left: 12%;
+      top: 260px;
+    }
   }
 
 

@@ -5,6 +5,7 @@ import { Navbar } from "../components/Navigation";
 import style from './box.module.scss';
 import { Lamp } from "../components/lamp/Lamp";
 import { BackToTop } from "../components/backTop/BackToTop";
+import book from './../assets/icons8-bookmark-25.png';
 
 export function Today(props){
 
@@ -68,10 +69,30 @@ export function Today(props){
       return text.slice(0, maxLength) + "...";
     };
     
-const value = 'dark';
 
     
-    
+  
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+const syncThemeWithLocalStorage = () => {
+    const storedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(storedTheme);
+  };
+
+  useEffect(() => {
+    syncThemeWithLocalStorage();
+
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'theme') {
+        setTheme(event.newValue);
+      }
+    });
+
+    return () => {
+      window.removeEventListener('storage', syncThemeWithLocalStorage);
+    };
+  }, [])
+
     return(
       <>
       <Lamp />
@@ -88,6 +109,7 @@ const value = 'dark';
                     <span className={`${style.circle}  ${style.bottomRight}`}></span> 
                 </div>
                 <Navbar />
+                <div class="line"></div>
         <div className="timeline">
             <div className="circled"></div>
           {data.map((event, index) => ( 
@@ -95,11 +117,9 @@ const value = 'dark';
           <div className="timeline-content">
             <h3>YEAR: {event.year}</h3>
             <div className="circle"><hr /> </div>
-            <p className={value === 'light' ? 'LightMode' : 'DarkMode'}  > {truncateText(event.text, 100)} </p>
-            <a href={event.pages[0].content_urls.desktop.page}>Read more <span role="img" aria-label="book">📖</span></a>
-            
+            <p className={theme === 'light' ?  style.LightMode : style.DarkMode}  > {truncateText(event.text, 100)} </p>
+            <a href={event.pages[0].content_urls.desktop.page}><span role="image"><img src={book} alt="" /></span>  Read more </a>
           </div>
-         
         </div>
         
       ))}

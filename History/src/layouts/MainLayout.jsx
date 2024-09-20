@@ -23,10 +23,7 @@ export function MainLayout() {
     return(
         <>
         <Header title={title}  />
-       
-
         <main>
-         <Since />
          <Outlet />
         </main>
 

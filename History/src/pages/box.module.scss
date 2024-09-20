@@ -3,13 +3,16 @@
 @import './../helper/mixin.scss';
 .box{
     padding: 0;
-    width: 80%;
-    margin-left: 8%;
+    width: 70%;
+    margin-left: 11%;
     border: 21px solid $border;
     text-align: center;
     background-color: $mainColor;
     position: relative;
-margin-top: -400px;
+    margin-top: -400px;
+    @media(max-width:600px){
+      margin-top: -200px;
+    }
    
     hgroup{
         width: 80%;
@@ -26,8 +29,10 @@ margin-top: -400px;
               background-color: $mainColor;
               color: $praph;
               font-size: 90px;
-              
               text-align: center;
+              @media(max-width:600px){
+              font-size: 30px;
+              }
              
             }
           
@@ -38,11 +43,17 @@ margin-top: -400px;
             font-size: 96px;
             text-transform: uppercase;
             @include Limelight;
+            @media(max-width:600px){
+              font-size: 30px;
+            }
         }
         p{
             @include LindenHill(normal);
             color: $lightGreen;
             font-size: 32px;
+            @media(max-width:600px){
+              font-size: 15px;
+            }
         }    
     }
     .circle {
@@ -79,4 +90,9 @@ margin-top: -400px;
 }
 
 
-  
+.LightMode {
+  color: black;
+}
+.DarkMode {
+color: white;
+}

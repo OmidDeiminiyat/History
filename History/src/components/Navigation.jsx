@@ -27,7 +27,7 @@ export function Navbar(){
                         <NavLink to="/" className={({isActive}) => isActive ? style.active : '' }  > Today </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/Since" className={({isActive}) => isActive ? style.active : '' }  > Since </NavLink>
+                        <NavLink to="/Since" className={({isActive}) => isActive ? style.active : '' }  > About </NavLink>
                     </li>
                 </ul>
             </nav>

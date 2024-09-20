@@ -1,0 +1,23 @@
+@import './../helper/colors.scss';
+@import './../helper/fonts.scss';
+@import './../helper/mixin.scss';
+.about{
+    width: 80%;
+    margin-left: 10%;
+    h1{
+      color: $lightGreen;
+      text-align: center;
+      @include Limelight;
+    }
+    article{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      @media(max-width:600px) {
+      grid-template-columns: 1fr;
+      }
+      p{
+        @include LindenHill(normal);
+        color: $praph;
+      }
+    }
+  }

@@ -3,6 +3,8 @@ import style from './box.module.scss';
 import { Navbar } from '../components/Navigation';
 import React, { useState, useEffect } from "react";
 import { Lamp } from '../components/lamp/Lamp';
+import { BackToTop } from '../components/backTop/BackToTop';
+import book from './../assets/icons8-bookmark-25.png';
 
 export const ByDate = () => {
   const [day, setDay] = useState("");
@@ -44,6 +46,7 @@ export const ByDate = () => {
   };
   return (
           <>
+           <Lamp />
            <div className={style.box}>
                     <hgroup>
                         <span>
@@ -55,7 +58,7 @@ export const ByDate = () => {
                           max="31"
                           value={day}
                           onChange={(e) => setDay(e.target.value)}
-                          placeholder="Enter day (1-31)"
+                           placeholder="0"
                         />/
                         <input
                         id="month"
@@ -64,7 +67,7 @@ export const ByDate = () => {
                         max="12"
                         value={month}
                         onChange={(e) => setMonth(e.target.value)}
-                        placeholder="Enter month (1-12)"
+                        placeholder="0"
                        />
                       </h1>   
                         </span>
@@ -76,7 +79,8 @@ export const ByDate = () => {
                     <span className={`${style.circle}  ${style.bottomRight}`}></span> 
                 </div>
                 <Navbar />
-                <Lamp />
+                <div class="line"></div>
+               
                 {error && <p style={{ color: "red" }}>{error}</p>}
                 {/* Display Events */}
                 <div className="timeline">
@@ -87,13 +91,14 @@ export const ByDate = () => {
                       <h3>YEAR: {event.year}</h3>
                       <div className="circle"><hr /> </div>
                       <p> {truncateText(event.text, 100)}</p>
-                      <a href={event.pages[0].content_urls.desktop.page}>Read more <span role="img" aria-label="book">📖</span></a>
+                      <a href={event.pages[0].content_urls.desktop.page}><span role="image"><img src={book} alt="" /></span>  Read more </a>
                       
                     </div>
                    
                   </div>
                   ))}
                 </div>
+                <BackToTop />
         </>
 
 

@@ -1,9 +1,9 @@
-import image from './../../assets/mr-cup-fabien-barral-Fo5dTm6ID1Y-unsplash.jpg';
+import image from './../../assets/HistoryImage.png';
 import style from './Header.module.scss';
 import SearchForm from '../search/SearchForm';
 import { useLocation } from 'react-router-dom';
 import React, { useState } from 'react';
-
+import { Navbar } from '../Navigation';
 
 export const Header = () => {
 
@@ -11,7 +11,6 @@ export const Header = () => {
         <>
             <header className={style.header}>
                 <img src={image} alt="History" />
-               
             </header>
         </>
     )

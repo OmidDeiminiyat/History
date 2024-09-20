@@ -1,5 +1,5 @@
 import lamp from './../../assets/icons8-light-50.png';
-import lightLamp from './../../assets/icons8-light-48.png'
+import lightLamp from './../../assets/icons8-light-50-2.png'
 import style from './Lamp.module.scss';
 import { useState, useEffect } from 'react';
 import { Today } from '../../pages/Today';
@@ -7,8 +7,8 @@ import { Today } from '../../pages/Today';
 
 export const Lamp = () => {
     const [theme, setTheme] = useState('light');
+    const [headingClass, setHeadingClass] = useState('LightMode');
 
-    // Function to toggle between light and dark mode
     const toggleTheme = () => {
       const newTheme = theme === 'light' ? 'dark' : 'light';
       setTheme(newTheme);
@@ -26,6 +26,7 @@ export const Lamp = () => {
   
     useEffect(() => {
       document.body.className = theme; 
+      setHeadingClass('DarkMode')
     }, [theme]);
     return (
         <span onClick={toggleTheme} className={style.themetogglebtn}>
